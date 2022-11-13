@@ -47,11 +47,10 @@ public class MateriaImpl implements  Repositorio<Materia>{
     @Override
     public void insertar(Materia materia) {
         try(PreparedStatement stmt= getConnection().
-                prepareStatement("insert into materias values (?,?,?,?)")){
-            stmt.setInt(1, materia.getId());
-            stmt.setString(2,materia.getNombre());
-            stmt.setString(3,materia.getCodigo());
-            stmt.setInt(4, materia.getCarreraId());
+                prepareStatement("insert into materias (nombre,codigo,carreraId) values (?,?,?)")){
+            stmt.setString(1,materia.getNombre());
+            stmt.setString(2,materia.getCodigo());
+            stmt.setInt(3, materia.getCarreraId());
             stmt.execute();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

@@ -47,8 +47,7 @@ public class AlumnoImpl implements Repositorio<Alumno>{
     @Override
     public void insertar(Alumno alumno) {
         try(PreparedStatement stmt= getConnection().
-                prepareStatement("insert into alumnos values (?,?,?,?)")){
-            stmt.setInt(1,alumno.getId());
+                prepareStatement("insert into alumnos (nombre,apellido,dni) values (?,?,?)")){
             stmt.setString(2,alumno.getNombre());
             stmt.setString(3,alumno.getApellido());
             stmt.setString(4,alumno.getDni());

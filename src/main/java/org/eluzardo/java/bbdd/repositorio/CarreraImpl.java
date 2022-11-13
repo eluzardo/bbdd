@@ -57,7 +57,14 @@ public class CarreraImpl implements Repositorio<Carrera>{
 
     @Override
     public void insertar(Carrera carrera) {
-
+        try(PreparedStatement stmt=getConnection().
+                prepareStatement("insert into carreras (nombre,codigo) values (?,?)")){
+            stmt.setString(1, carrera.getCarrera());
+            stmt.setString(2, carrera.getCodigo());
+            stmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 

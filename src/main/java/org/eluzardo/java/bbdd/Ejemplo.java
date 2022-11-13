@@ -22,6 +22,11 @@ public class Ejemplo {
             Repositorio<Alumno> alumnos = new AlumnoImpl();
             Repositorio<Materia> materias = new MateriaImpl();
 
+
+
+            Carrera carrera= new Carrera(0,"quimica","q");
+
+            carreras.insertar(carrera);
             carreras.listar().forEach(p -> System.out.println(p.toString()));
             alumnos.listar().forEach(a -> System.out.println(a.toString()));
             materias.listar().forEach(a -> System.out.println(a.toString()));
